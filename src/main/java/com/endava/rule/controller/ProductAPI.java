@@ -26,8 +26,8 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
 	public ResponseEntity<?> registerProduct(@RequestBody ProductRequestDto request) {
-		Product product = productService.registerProduct(request);
-		return new ResponseEntity<>(product, OK);
+		productService.registerProduct(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findAllProducts", method = RequestMethod.GET)
@@ -38,8 +38,8 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/updateProduct", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateProduct(@RequestBody ProductRequestDto request){
-		Product product = productService.updateProduct(request);
-		return new ResponseEntity<>(product, OK);
+		productService.updateProduct(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findProductByName", method = RequestMethod.POST)

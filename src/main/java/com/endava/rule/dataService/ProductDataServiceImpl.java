@@ -23,8 +23,8 @@ public class ProductDataServiceImpl implements ProductDataService {
 	ProductRepository productRepository;
 
 	@Override
-	public Product registerProduct(Product product) {
-		return productRepository.save(product);
+	public void registerProduct(Product product) {
+		productRepository.save(product);
 	}
 
 	@Override
@@ -36,10 +36,9 @@ public class ProductDataServiceImpl implements ProductDataService {
 	}
 
 	@Override
-	public Product updateProduct(Product productDetails) {
+	public void updateProduct(Product productDetails) {
 		Product oldProductDetails = productRepository.findByName(productDetails.getName());
-		productRepository.delete(oldProductDetails);
-		return productRepository.save(productDetails);
+		productRepository.save(productDetails);
 	}
 
 	@Override

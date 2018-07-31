@@ -24,14 +24,14 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/registerCustomer", method = RequestMethod.POST)
 	public ResponseEntity<?> registerCustomer(@RequestBody CustomerRequestDto request) {
-		Customer customer = customerService.registerCustomer(request);
-		return new ResponseEntity<>(customer, OK);
+		customerService.registerCustomer(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/updateCustomerByCic", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateCustomerByCic(@RequestBody CustomerRequestDto request){
-		Customer customer = customerService.updateCustomerByCic(request);
-		return new ResponseEntity<>(customer, OK);
+		customerService.updateCustomerByCic(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findCustomerByCic", method = RequestMethod.POST)

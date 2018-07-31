@@ -14,13 +14,13 @@ import java.util.List;
 
 public interface PaymentMethodService {
 
-	PaymentMethod registerPaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto);
+	void registerPaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto);
 
-	PaymentMethod updatePaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto);
+	void updatePaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto);
 
 	List<PaymentMethod> findAllPaymentMethods();
 
-	void removePaymentMethodByBicAndPaymentMethodName(PaymentMethodRequestDto request);
+	void removePaymentMethod(PaymentMethodRequestDto request);
 
 	void removeAllPaymentMethodsByBic(String bic);
 

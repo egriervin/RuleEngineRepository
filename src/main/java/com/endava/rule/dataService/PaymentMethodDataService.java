@@ -12,13 +12,13 @@ import java.util.List;
  */
 public interface PaymentMethodDataService {
 
-	PaymentMethod registerPaymentMethod(PaymentMethod paymentMethod);
+	void registerPaymentMethod(PaymentMethod paymentMethod);
 
 	List<PaymentMethod> findAllPaymentMethods();
 
-	PaymentMethod updatePaymentMethod(Long bankId, String oldPaymentMethod, String newPaymentMethod);
+	void updatePaymentMethod(PaymentMethod paymentMethod);
 
-	void removePaymentMethodByBicAndPaymentMethodName(Long bankId, String paymentMethod);
+	void removePaymentMethod(PaymentMethod paymentMethod);
 
 	List<PaymentMethod> findPaymentMethodsByBank(Long id);
 

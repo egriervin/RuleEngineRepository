@@ -23,8 +23,8 @@ public class BankDataServiceImpl implements BankDataService {
 	BankRepository bankRepository;
 
 	@Override
-	public Bank registerBank(Bank bank) {
-		return bankRepository.save(bank);
+	public void registerBank(Bank bank) {
+		bankRepository.save(bank);
 	}
 
 	@Override
@@ -36,10 +36,10 @@ public class BankDataServiceImpl implements BankDataService {
 	}
 
 	@Override
-	public Bank updateBank(Bank newBankDetails) {
+	public void updateBank(Bank newBankDetails) {
 		Bank oldBankDetails = bankRepository.findByBic(newBankDetails.getBic());
 		bankRepository.delete(oldBankDetails);
-		return bankRepository.save(newBankDetails);
+		bankRepository.save(newBankDetails);
 	}
 
 	@Override

@@ -25,13 +25,13 @@ public class ProductServiceImpl implements ProductService {
 	ProductDtoConverter productDtoConverter;
 
 	@Override
-	public Product registerProduct(ProductRequestDto productRequestDto) {
-		return productDataService.registerProduct(productDtoConverter.toEntity(productRequestDto));
+	public void registerProduct(ProductRequestDto productRequestDto) {
+		productDataService.registerProduct(productDtoConverter.toEntity(productRequestDto));
 	}
 
 	@Override
-	public Product updateProduct(ProductRequestDto productRequestDto) {
-		return productDataService.updateProduct(productDtoConverter.toEntity(productRequestDto));
+	public void updateProduct(ProductRequestDto productRequestDto) {
+		productDataService.updateProduct(productDtoConverter.toEntity(productRequestDto));
 	}
 
 	@Override

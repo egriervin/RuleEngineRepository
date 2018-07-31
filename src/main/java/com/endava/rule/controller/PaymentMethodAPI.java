@@ -26,8 +26,8 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/registerPaymentMethod", method = RequestMethod.POST)
 	public ResponseEntity<?> registerPaymentMethod(@RequestBody PaymentMethodRequestDto request) {
-		PaymentMethod paymentMethod = paymentMethodService.registerPaymentMethod(request);
-		return new ResponseEntity<>(paymentMethod, OK);
+		paymentMethodService.registerPaymentMethod(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findAllPaymentMethods", method = RequestMethod.GET)
@@ -38,8 +38,8 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/updatePaymentMethod", method = RequestMethod.PUT)
 	public ResponseEntity<?> updatePaymentMethod(@RequestBody PaymentMethodRequestDto request){
-		PaymentMethod paymentMethod = paymentMethodService.updatePaymentMethod(request);
-		return new ResponseEntity<>(paymentMethod, OK);
+		paymentMethodService.updatePaymentMethod(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findPaymentMethodsByBic", method = RequestMethod.POST)
@@ -49,10 +49,11 @@ import static org.springframework.http.HttpStatus.OK;
 	}
 
 	@RequestMapping(value = "/removePaymentMethodByBicAndPaymentMethodName", method = RequestMethod.POST)
-	public ResponseEntity<?> removePaymentMethodByBicAndPaymentMethodName(@RequestBody PaymentMethodRequestDto request){
-		paymentMethodService.removePaymentMethodByBicAndPaymentMethodName(request);
+	public ResponseEntity<?> removePaymentMethod(@RequestBody PaymentMethodRequestDto request){
+		paymentMethodService.removePaymentMethod(request);
 		return new ResponseEntity<>(null, OK);
 	}
+
 	@RequestMapping(value = "/removeAllPaymentMethodsByBic", method = RequestMethod.POST)
 	public ResponseEntity<?> removeAllPaymentMethodsByBic(@RequestBody PaymentMethodRequestDto request){
 		paymentMethodService.removeAllPaymentMethodsByBic(request.getBic());

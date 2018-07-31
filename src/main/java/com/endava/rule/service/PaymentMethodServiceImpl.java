@@ -24,19 +24,19 @@ public class PaymentMethodServiceImpl implements PaymentMethodService {
 	@Autowired BankDataService bankDataService;
 
 	@Override
-	public PaymentMethod registerPaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto) {
+	public void registerPaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto) {
 
 		Bank bank = bankDataService.findBankByBic(paymentMethodRequestDto.getBic());
-		PaymentMethod paymentMethod = new PaymentMethod(bank.getId(), paymentMethodRequestDto.getPaymentMethod());
-		return paymentMethodDataService.registerPaymentMethod(paymentMethod);
+		PaymentMethod paymentMethod = new PaymentMethod(bank.getId(), paymentMethodRequestDto.getPaymentMethodName());
+		paymentMethodDataService.registerPaymentMethod(paymentMethod);
 	}
 
 	@Override
-	public PaymentMethod updatePaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto) {
+	public void updatePaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto) {
 
 		Bank bank = bankDataService.findBankByBic(paymentMethodRequestDto.getBic());
-		return paymentMethodDataService.updatePaymentMethod(bank.getId(), paymentMethodRequestDto.getOldPaymentMethod(),
-				paymentMethodRequestDto.getPaymentMethod());
+		PaymentMethod paymentMethod = new PaymentMethod(bank.getId(), paymentMethodRequestDto.getPaymentMethodName());
+		paymentMethodDataService.updatePaymentMethod(paymentMethod);
 	}
 
 	@Override
@@ -45,9 +45,10 @@ public class PaymentMethodServiceImpl implements PaymentMethodService {
 	}
 
 	@Override
-	public void removePaymentMethodByBicAndPaymentMethodName(PaymentMethodRequestDto paymentMethodRequestDto) {
+	public void removePaymentMethod(PaymentMethodRequestDto paymentMethodRequestDto) {
 		Bank bank = bankDataService.findBankByBic(paymentMethodRequestDto.getBic());
-		paymentMethodDataService.removePaymentMethodByBicAndPaymentMethodName(bank.getId(), paymentMethodRequestDto.getPaymentMethod());
+		PaymentMethod  paymentMethod = new PaymentMethod(bank.getId(), paymentMethodRequestDto.getPaymentMethodName());
+		paymentMethodDataService.removePaymentMethod(paymentMethod);
 	}
 
 	@Override

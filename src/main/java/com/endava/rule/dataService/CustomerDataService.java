@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface CustomerDataService {
 
-	Customer registerCustomer(CustomerRequestDto customer);
+	void registerCustomer(CustomerRequestDto customer);
 
-	Customer updateCustomerByCic(CustomerRequestDto customer);
+	void updateCustomerByCic(CustomerRequestDto customer);
 
 	void removeCustomerByCic(String cic);
 

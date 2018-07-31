@@ -13,11 +13,11 @@ import java.util.List;
  */
 public interface BankDataService {
 
-	Bank registerBank(Bank bank);
+	void registerBank(Bank bank);
 
 	List<Bank> findAllBanks();
 
-	Bank updateBank(Bank bank);
+	void updateBank(Bank bank);
 
 	void removeBank(String bic);
 

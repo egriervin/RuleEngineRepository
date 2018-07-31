@@ -12,11 +12,11 @@ import java.util.List;
  */
 public interface ProductDataService {
 
-	Product registerProduct(Product product);
+	void registerProduct(Product product);
 
 	List<Product> findAllProducts();
 
-	Product updateProduct(Product product);
+	void updateProduct(Product product);
 
 	void removeProduct(String name);
 

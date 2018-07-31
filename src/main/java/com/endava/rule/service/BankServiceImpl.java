@@ -26,13 +26,13 @@ public class BankServiceImpl implements BankService {
 	BankDtoConverter bankDtoConverter;
 
 	@Override
-	public Bank registerBank(BankRequestDto bankRequestDto) {
-		return bankDataService.registerBank(bankDtoConverter.toEntity(bankRequestDto));
+	public void registerBank(BankRequestDto bankRequestDto) {
+		bankDataService.registerBank(bankDtoConverter.toEntity(bankRequestDto));
 	}
 
 	@Override
-	public Bank updateBank(BankRequestDto bankRequestDto) {
-		return bankDataService.updateBank(bankDtoConverter.toEntity(bankRequestDto));
+	public void updateBank(BankRequestDto bankRequestDto) {
+		bankDataService.updateBank(bankDtoConverter.toEntity(bankRequestDto));
 	}
 
 	@Override

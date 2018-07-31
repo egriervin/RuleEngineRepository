@@ -25,6 +25,9 @@ public class Account implements Serializable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
+  @Column (name = "uuid")
+  private long uuid;
+
   @Column(name = "bank_id")
   private long bankId;
 

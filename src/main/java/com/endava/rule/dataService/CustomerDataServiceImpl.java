@@ -30,7 +30,7 @@ import java.util.List;
 
 	@Autowired CustomerDtoConverter customerDtoConverter;
 
-	@Override public Customer registerCustomer(CustomerRequestDto customerRequestDto) {
+	@Override public void registerCustomer(CustomerRequestDto customerRequestDto) {
 
 		Bank bank = bankRepository.findByBic(customerRequestDto.getBic());
 		Customer customer = customerRepository.save(customerDtoConverter.toEntity(customerRequestDto));
@@ -38,11 +38,9 @@ import java.util.List;
 		Account account = new Account(bank.getId(), customer.getId(), customerRequestDto.getBalance());
 
 		accountRepository.save(account);
-		return customer;
-
 	}
 
-	@Override public Customer updateCustomerByCic(CustomerRequestDto customerRequestDto) {
+	@Override public void updateCustomerByCic(CustomerRequestDto customerRequestDto) {
 		Customer customer = customerRepository.findByCic(customerRequestDto.getCic());
 		Customer newCustomer = customerDtoConverter.toEntity(customerRequestDto);
 
@@ -57,11 +55,8 @@ import java.util.List;
 		Account newAccount = new Account(bankId, customer.getId(), customerRequestDto.getBalance());
 
 		if (!oldAccount.equals(newAccount)) {
-			accountRepository.delete(oldAccount);
 			accountRepository.save(newAccount);
 		}
-
-		return customer;
 	}
 
 	@Override public void removeCustomerByCic(String cic) {

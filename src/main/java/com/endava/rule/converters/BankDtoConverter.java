@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
  * @author Ervin Egri
  * @since 1.0.0
  */
-@Component public class BankDtoConverter {
+@Component
+public class BankDtoConverter {
 
 	public Bank toEntity(BankRequestDto bankRequestDto) {
 		Bank bank = new Bank();

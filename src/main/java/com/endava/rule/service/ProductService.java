@@ -14,9 +14,9 @@ import java.util.List;
 
 public interface ProductService {
 
-	Product registerProduct(ProductRequestDto productRequestDto);
+	void registerProduct(ProductRequestDto productRequestDto);
 
-	Product updateProduct(ProductRequestDto productRequestDto);
+	void updateProduct(ProductRequestDto productRequestDto);
 
 	List<Product> findAllProducts();
 

@@ -28,8 +28,8 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/registerBank", method = RequestMethod.POST)
 	public ResponseEntity<?> registerBank(@RequestBody BankRequestDto request) {
-		Bank bank = bankService.registerBank(request);
-		return new ResponseEntity<>(bank, OK);
+		bankService.registerBank(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findAllBanks", method = RequestMethod.GET)
@@ -40,8 +40,8 @@ import static org.springframework.http.HttpStatus.OK;
 
 	@RequestMapping(value = "/updateBank", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateBank(@RequestBody BankRequestDto request){
-		Bank bank = bankService.updateBank(request);
-		return new ResponseEntity<>(bank, OK);
+		bankService.updateBank(request);
+		return new ResponseEntity<>(null, OK);
 	}
 
 	@RequestMapping(value = "/findBankByBic", method = RequestMethod.POST)

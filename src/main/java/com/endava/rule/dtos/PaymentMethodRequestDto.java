@@ -16,14 +16,14 @@ public class PaymentMethodRequestDto implements Serializable {
 
 	private String oldPaymentMethod;
 
-	private String paymentMethod;
+	private String paymentMethodName;
 
 	public PaymentMethodRequestDto() {
 	}
 
-	public PaymentMethodRequestDto(String bic, String paymentMethod) {
+	public PaymentMethodRequestDto(String bic, String paymentMethodName) {
 		this.bic = bic;
-		this.paymentMethod = paymentMethod;
+		this.paymentMethodName = paymentMethodName;
 	}
 
 	public String getOldPaymentMethod() {
@@ -42,15 +42,15 @@ public class PaymentMethodRequestDto implements Serializable {
 		this.bic = bic;
 	}
 
-	public String getPaymentMethod() {
-		return paymentMethod;
+	public String getPaymentMethodName() {
+		return paymentMethodName;
 	}
 
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
+	public void setPaymentMethodName(String paymentMethodName) {
+		this.paymentMethodName = paymentMethodName;
 	}
 
 	@Override public String toString() {
-		return "PaymentMethodRequestDto{" + "bic='" + bic + '\'' + ", paymentMethod='" + paymentMethod + '\'' + '}';
+		return "PaymentMethodRequestDto{" + "bic='" + bic + '\'' + ", paymentMethodName='" + paymentMethodName + '\'' + '}';
 	}
 }

@@ -14,9 +14,9 @@ import java.util.List;
 
 public interface BankService {
 
-	Bank registerBank(BankRequestDto bankRequestDto);
+	void registerBank(BankRequestDto bankRequestDto);
 
-	Bank updateBank(BankRequestDto bankRequestDto);
+	void updateBank(BankRequestDto bankRequestDto);
 
 	List<Bank> findAllBanks();
 

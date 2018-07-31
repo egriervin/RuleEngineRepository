@@ -19,13 +19,13 @@ public class CustomerServiceImpl implements CustomerService {
 	CustomerDataService customerDataService;
 
 	@Override
-	public Customer registerCustomer(CustomerRequestDto customerRequestDto) {
-		return customerDataService.registerCustomer(customerRequestDto);
+	public void registerCustomer(CustomerRequestDto customerRequestDto) {
+		customerDataService.registerCustomer(customerRequestDto);
 	}
 
 	@Override
-	public Customer updateCustomerByCic(CustomerRequestDto customerRequestDto) {
-		return customerDataService.updateCustomerByCic(customerRequestDto);
+	public void updateCustomerByCic(CustomerRequestDto customerRequestDto) {
+		customerDataService.updateCustomerByCic(customerRequestDto);
 	}
 
 	@Override
